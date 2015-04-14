@@ -26,26 +26,34 @@ void fire()
 
 void main()
 	{	
-		int i;
-		char msg;
-		uart_init();
-		msg=uart_rxchar();
-	 	while (msg=='f')
-		  {
-		   
-		   	for(i=0;i<200;i++)
-					fire();
-			
-				delay_sec(1);
-		   				
+	   int i;
+		    char msg;
+		    uart_init();
+		         
+	     	 msg=uart_rxchar();
+		
+	 	
 		  
-		  if(msg=='o')
-		  {
-		  	segs=0x00; // Need changes here
+			while(1)
+		    {
+			 msg=uart_rxchar();
+			if (msg=='f')
+				{
+				    
+		      	    for(i=0;i<200;i++)
+					fire(); 
+					delay_sec(1);
+				 
+			  	 }
+	 	       	else if(msg=='o')
+				 {
+			    
+					segs=0x00;
+			 	 }
+				 msg=0;
 		  }
-
-		  }            //edited cmnt
-	}
-	   	
+	   }
+					
+	
 		  	 
 	
