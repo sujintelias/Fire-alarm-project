@@ -41,7 +41,7 @@ void main()
 		  
 		  if(msg=='o')
 		  {
-		  	segs=0x00;
+		  	segs=0x00; // Need changes here
 		  }
 
 		  }            //edited cmnt
