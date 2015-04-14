@@ -44,7 +44,7 @@ void main()
 		  	segs=0x00;
 		  }
 
-		  }            //added comment
+		  }            //edited cmnt
 	}
 	   	
 		  	 
