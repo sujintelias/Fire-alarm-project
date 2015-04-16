@@ -26,7 +26,8 @@ void uart_txstring(unsigned char ch[100])
  }
 unsigned char uart_rxchar()
  {
- 	while(RI==0);
+ 	
+	if(RI==1)
 	RI=0;
  	return SBUF;
  }
