@@ -4,9 +4,9 @@
 #define segs P1
 #define datas P0
 sbit bzr=P2^0;
-void fire()
+void fire(unsigned char str[4])
 {
-	unsigned char str[]={0x8e,0x0c,0xee,0x9e};
+	
 	datas=str[0];
     segs=0x18;
 	
@@ -31,40 +31,47 @@ void fire()
 
 
 void main()
-	{	
+{	
 	   int i;
-		    char msg;
-		    uart_init();
-		         
-	     	 msg=uart_rxchar();
-		
-	 	
-		  
-			while(1)
+	   unsigned char fireCode[]={0x8e,0x0c,0xee,0x9e};
+	   unsigned char initCode[]={0x01,0x01,0x01,0x01};
+
+	   char msg;
+	   uart_init();
+	         
+     	msg=uart_rxchar();
+	
+ 	
+	  
+		while(1)
+		{
+	    msg=uart_rxchar();  
+	    
+		if(msg=='f')
 			{
-		    msg=uart_rxchar();  
-			
-			if(msg=='f')
-				{
-				    
-		      	    bzr=1;
-					for(i=0;i<200;i++)
-					fire(); 
-					bzr=0;
-					delay_sec(1);				 
-			  	 }
-	 	       	else if(msg=='o')
-				 {
-			    
-					segs=0x00;
-					bzr=0;
-			 	 }
-			
-			} 	 
-		  						
+			    uart_txchar('f');
+	      	    bzr=1;
+				for(i=0;i<200;i++)
+				fire(fireCode); 
+				bzr=0;
+				delay_sec(1);				 
+		  	 }
+ 	       	else if(msg=='q')
+			 {
+		        uart_txchar('O');
+				segs=0x00;
+				bzr=0;
+		 	 }
+			else 
+			 {
+			   uart_txchar('O');
+			   bzr=0;
+			   fire(initCode);
+
+			 } 	 
 								
 		 }
 					
 	
-		  	 
+}		  	 
 	
