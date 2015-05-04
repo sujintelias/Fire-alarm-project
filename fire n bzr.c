@@ -37,38 +37,39 @@ void main()
 	   unsigned char initCode[]={0x01,0x01,0x01,0x01};
 
 	   char msg;
+	   char prevMsg;
 	   uart_init();
-	         
-     	msg=uart_rxchar();
-	
- 	
-	  
+
 		while(1)
 		{
-	    msg=uart_rxchar();  
-	    
-		if(msg=='f')
+		    msg=uart_rxchar();
+			if (msg!=prevMsg)
 			{
-			    uart_txchar('f');
-	      	    bzr=1;
-				for(i=0;i<200;i++)
-				fire(fireCode); 
-				bzr=0;
-				delay_sec(1);				 
-		  	 }
- 	       	else if(msg=='q')
-			 {
-		        uart_txchar('O');
-				segs=0x00;
-				bzr=0;
-		 	 }
-			else 
-			 {
-			   uart_txchar('O');
-			   bzr=0;
-			   fire(initCode);
-
-			 } 	 
+				prevMsg = msg;
+				uart_txchar(msg+1);
+			}
+		    
+			if(msg=='f')
+				{   
+					bzr=1;
+					for(i=0;i<200;i++)
+					fire(fireCode); 
+					bzr=0;
+					delay_sec(1);				 
+			  	 }
+	 	       	else if(msg=='q')
+				 {	
+				    
+				    segs=0x00;
+					bzr=0;
+			 	 }
+				else 
+				 {
+				   
+				   bzr=0;
+				   fire(initCode);
+				   
+				 } 	 
 								
 		 }
 					
