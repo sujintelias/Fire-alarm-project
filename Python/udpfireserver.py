@@ -6,7 +6,6 @@ obj=serial.Serial('COM1',9600,serial.EIGHTBITS,serial.PARITY_NONE,serial.STOPBIT
 s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 print"server stared"
 s.bind((host,port))
-data,addr=s.recvfrom(1024)
 while(1):
         data,addr=s.recvfrom(1024)
         if data=='q':

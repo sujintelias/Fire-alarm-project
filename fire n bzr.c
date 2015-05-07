@@ -39,12 +39,14 @@ void main()
 	   char msg;
 	   char prevMsg;
 	   uart_init();
-
+	    msg=uart_rxchar();
 		while(1)
-		{
+		{	
+		   
 		    msg=uart_rxchar();
+			
 			if (msg!=prevMsg)
-			{
+			{   prevMsg=0;
 				prevMsg = msg;
 				uart_txchar(msg+1);
 			}
