@@ -1,0 +1,50 @@
+C51 COMPILER V9.00   LCD                                                                   05/20/2015 12:44:49 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE LCD
+OBJECT MODULE PLACED IN .\lcd.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE ..\header\lcd.c BROWSE DEBUG OBJECTEXTEND PRINT(.\lcd.lst) OBJECT(.\lcd.obj
+                    -)
+
+line level    source
+
+   1          #define lcdd P3
+   2          sbit rs=P2^0;
+*** ERROR C202 IN LINE 2 OF ..\HEADER\LCD.C: 'P2': undefined identifier
+   3          sbit rw=P2^1;
+*** ERROR C202 IN LINE 3 OF ..\HEADER\LCD.C: 'P2': undefined identifier
+   4          sbit e=P2^2;
+*** ERROR C202 IN LINE 4 OF ..\HEADER\LCD.C: 'P2': undefined identifier
+   5          void lcd_cmdwrite(char cmd)
+   6          {
+   7   1              lcdd=cmd;
+*** ERROR C202 IN LINE 7 OF ..\HEADER\LCD.C: 'P3': undefined identifier
+   8   1              rs=1;
+*** ERROR C202 IN LINE 8 OF ..\HEADER\LCD.C: 'rs': undefined identifier
+   9   1              rw=0;
+*** ERROR C202 IN LINE 9 OF ..\HEADER\LCD.C: 'rw': undefined identifier
+  10   1              e=1;
+*** ERROR C202 IN LINE 10 OF ..\HEADER\LCD.C: 'e': undefined identifier
+  11   1              delay_us(10);
+  12   1              e=0:
+  13   1              delay_ms(1);
+  14   1      }
+  15          void lcd_datawrite(char dat)
+  16          {
+  17   1              lcdd=dat;
+  18   1              rs=0;
+  19   1              rw=0;
+  20   1              e=1;
+  21   1              delay_us(10);
+  22   1              e=0:
+  23   1              delay_ms(1);
+  24   1       }
+  25          void lcd_init()
+  26          {
+  27   1              lcd_cmdwrite(0x38);
+  28   1              lcd_cmdwrite(0x0e);
+  29   1              lcd_cmdwrite(0x01);
+  30   1              lcd_cmdwrite(0x80);
+  31   1       }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  7 ERROR(S)

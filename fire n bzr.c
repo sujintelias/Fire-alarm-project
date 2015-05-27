@@ -4,6 +4,7 @@
 #define segs P1
 #define datas P0
 sbit bzr=P2^0;
+sbit psw=P2^1;
 void fire(unsigned char str[4])
 {
 	
@@ -51,7 +52,7 @@ void main()
 				uart_txchar(msg+1);
 			}
 		    
-			if(msg=='f')
+			if(msg=='f'&&psw!=0)
 				{   
 					bzr=1;
 					for(i=0;i<200;i++)
@@ -59,7 +60,7 @@ void main()
 					bzr=0;
 					delay_sec(1);				 
 			  	 }
-	 	       	else if(msg=='q')
+	 	       	else if(msg=='q'||psw==0)
 				 {	
 				    
 				    segs=0x00;
