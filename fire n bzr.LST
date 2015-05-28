@@ -1,0 +1,106 @@
+C51 COMPILER V9.00   FIRE_N_BZR                                                            05/27/2015 11:45:04 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE FIRE_N_BZR
+OBJECT MODULE PLACED IN fire n bzr.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE fire n bzr.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #include "delay.h"
+   3          #include "uart.h"
+   4          #define segs P1
+   5          #define datas P0
+   6          sbit bzr=P2^0;
+   7          sbit psw=P2^1;
+   8          void fire(unsigned char str[4])
+   9          {
+  10   1              
+  11   1              datas=str[0];
+  12   1          segs=0x18;
+  13   1              
+  14   1              delay_us(250);
+  15   1              datas=str[1];
+  16   1              segs=0x14;
+  17   1              
+  18   1              delay_us(250);  
+  19   1              datas=str[2];
+  20   1              segs=0x12;
+  21   1         
+  22   1              delay_us(250);            
+  23   1              datas=str[3];
+  24   1              segs=0x11;
+  25   1          
+  26   1              delay_us(250);
+  27   1              segs=0x00;
+  28   1              
+  29   1              delay_us(250);
+  30   1      
+  31   1      }
+  32          
+  33          
+  34          void main()
+  35          {       
+  36   1                 int i;
+  37   1                 unsigned char fireCode[]={0x8e,0x0c,0xee,0x9e};
+  38   1                 unsigned char initCode[]={0x01,0x01,0x01,0x01};
+  39   1      
+  40   1                 char msg;
+  41   1                 char prevMsg;
+  42   1                 uart_init();
+  43   1                  msg=uart_rxchar();
+  44   1                      while(1)
+  45   1                      {       
+  46   2                         
+  47   2                          msg=uart_rxchar();
+  48   2                              
+  49   2                              if (msg!=prevMsg)
+  50   2                              {   prevMsg=0;
+  51   3                                      prevMsg = msg;
+  52   3                                      uart_txchar(msg+1);
+  53   3                              }
+  54   2                          
+  55   2                              if(msg=='f'&&psw!=0)
+C51 COMPILER V9.00   FIRE_N_BZR                                                            05/27/2015 11:45:04 PAGE 2   
+
+  56   2                                      {   
+  57   3                                              bzr=1;
+  58   3                                              for(i=0;i<200;i++)
+  59   3                                              fire(fireCode); 
+  60   3                                              bzr=0;
+  61   3                                              delay_sec(1);                            
+  62   3                                       }
+  63   2                              else if(msg=='q'||psw==0)
+  64   2                                       {      
+  65   3                                          
+  66   3                                          segs=0x00;
+  67   3                                              bzr=0;
+  68   3                                       }
+  69   2                                      else 
+  70   2                                       {
+  71   3                                         
+  72   3                                         bzr=0;
+  73   3                                         fire(initCode);
+  74   3                                         
+  75   3                                       }       
+  76   2                                                                      
+  77   2                       }
+  78   1                                              
+  79   1              
+  80   1      }                        
+  81                  
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    253    ----
+   CONSTANT SIZE    =      8    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      15
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
