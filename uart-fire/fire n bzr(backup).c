@@ -35,67 +35,58 @@ void fire(unsigned char str[4])
 void main()
 {	
 	   int i;
-	   char cntr='a';
 	   unsigned char fireCode[]={0x8e,0x0c,0xee,0x9e};
 	   unsigned char initCode[]={0x01,0x01,0x01,0x01};
 
 	   char msg;
 	   char prevMsg;
-	   bzr=0;
-	   lcd_init();
-	   lcd_clear();
-	   lcd_strwrite("Init");
 	   uart_init();
-	   //msg=uart_rxchar(); //Extra ???
+	   //lcd_init();
+	    msg=uart_rxchar();
 		while(1)
 		{	
-			cntr=cntr+1;
-		   	msg=uart_rxchar();
-			lcd_clear();
-	   		lcd_datawrite(cntr);
+		   
+		    msg=uart_rxchar();
 			
 			if (msg!=prevMsg)
-			{   prevMsg = msg;
-				//uart_txchar(msg);   //Acknowledgement
-
-				uart_txchar('a'); //Debug code
+			{   prevMsg=0;
+				prevMsg = msg;
+				uart_txchar(msg+1);
 			}
-			else
-			{
-			 	//uart_txchar(msg+1);   //Bug Acknowledgement
-				uart_txchar('b');		//Debug Code
-			}
-
-		    //uart_txchar(msg);   //Acknowledgement
-
+		    
 			if(msg=='f')
-			{   
+				{   
 					if(ack==0)
 					{
 						bzr=1;
-						lcd_clear();
-						lcd_strwrite("Client1");
+						//lcd_strwrite("ACK");
 					}
 					else
 					{
 						bzr=0;
-						lcd_clear();
-						lcd_strwrite("ACK");
+						//lcd_strwrite("Client1");
+					
 					}
 					for(i=0;i<200;i++)
 						fire(fireCode); 
 					bzr=0;
 					delay_sec(1);				 
-		  	 }
-			else 
-			 {
+			  	 }
+	 	       	else if(msg=='q')
+				 {	
+				    
+				    segs=0x00;
+					bzr=0;
+			 	 }
+				else 
+				 {
+				   
 				   bzr=0;
 				   fire(initCode);
-				   lcd_clear();
-	   				lcd_strwrite("Init");
-			 } 	 
+				   
+				 } 	 
 								
-		 }	  //End of infinite loop
+		 }
 					
 	
 }		  	 

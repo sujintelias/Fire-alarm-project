@@ -1,25 +1,25 @@
 #include<reg51.h>
 void uart_init()
 {
-	SCON = 0x50; // Cofigure UART
-	TMOD = 0x20;
-	TH1 = -3;
-	TR1 = 1;
-			
+	TMOD |=0x20; //Timer1 in Mode2.
+	TH1=-3;    // 9600 Baud rate at 11.0592MHz
+	SCON=0x50; // Asynchronous mode 8-bit data and 1-stop bit
+	TR1 = 1;	 //Turn ON the timer.
+	RI=0;
 }
 
 void uart_txchar(char ch)
 {
-	SBUF = ch;
-	while(TI == 0);
-	TI = 0;
+	SBUF=ch;	   // Load the data to be transmitted
+  	while(TI==0);    // Wait till the data is trasmitted
+    TI=0;
 }
 char uart_rxchar()
-	{
-	while(RI==0);
-	RI=0;
-	return SBUF;
-	}
+{
+	while(RI==0);	  // Wait till the data is received
+    RI=0;        // Clear Receive Interrupt Flag for next cycle
+  	return(SBUF);	  // return the received char
+}
 void uart_txstring(unsigned char ch[100])
  {
 	int x;

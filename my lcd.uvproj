@@ -43,10 +43,10 @@
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
           <OutputDirectory>.\</OutputDirectory>
-          <OutputName>my lcd</OutputName>
+          <OutputName>fireProject2</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
-          <CreateHexFile>0</CreateHexFile>
+          <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
           <ListingPath>.\</ListingPath>
@@ -213,7 +213,7 @@
               <RCB>
                 <Type>0</Type>
                 <StartAddress>0x0</StartAddress>
-                <Size>0x0</Size>
+                <Size>0xffff</Size>
               </RCB>
               <RXB>
                 <Type>0</Type>
@@ -347,96 +347,6 @@
           <GroupName>Source Group 1</GroupName>
           <Files>
             <File>
-              <FileName>lcdPgm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\lcd\lcdPgm.c</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>0</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <BankNo>65535</BankNo>
-                </CommonProperty>
-                <File51>
-                  <C51>
-                    <RegisterColoring>2</RegisterColoring>
-                    <VariablesInOrder>2</VariablesInOrder>
-                    <IntegerPromotion>2</IntegerPromotion>
-                    <uAregs>2</uAregs>
-                    <UseInterruptVector>2</UseInterruptVector>
-                    <Fuzzy>8</Fuzzy>
-                    <Optimize>10</Optimize>
-                    <WarningLevel>3</WarningLevel>
-                    <SizeSpeed>2</SizeSpeed>
-                    <ObjectExtend>2</ObjectExtend>
-                    <ACallAJmp>2</ACallAJmp>
-                    <InterruptVectorAddress>0</InterruptVectorAddress>
-                    <VariousControls>
-                      <MiscControls></MiscControls>
-                      <Define></Define>
-                      <Undefine></Undefine>
-                      <IncludePath></IncludePath>
-                    </VariousControls>
-                  </C51>
-                </File51>
-              </FileOption>
-            </File>
-            <File>
-              <FileName>lcd.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\header\lcd.c</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>0</IncludeInBuild>
-                  <AlwaysBuild>2</AlwaysBuild>
-                  <GenerateAssemblyFile>2</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>2</AssembleAssemblyFile>
-                  <PublicsOnly>2</PublicsOnly>
-                  <StopOnExitCode>11</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <BankNo>65535</BankNo>
-                </CommonProperty>
-                <File51>
-                  <C51>
-                    <RegisterColoring>2</RegisterColoring>
-                    <VariablesInOrder>2</VariablesInOrder>
-                    <IntegerPromotion>2</IntegerPromotion>
-                    <uAregs>2</uAregs>
-                    <UseInterruptVector>2</UseInterruptVector>
-                    <Fuzzy>8</Fuzzy>
-                    <Optimize>10</Optimize>
-                    <WarningLevel>3</WarningLevel>
-                    <SizeSpeed>2</SizeSpeed>
-                    <ObjectExtend>2</ObjectExtend>
-                    <ACallAJmp>2</ACallAJmp>
-                    <InterruptVectorAddress>0</InterruptVectorAddress>
-                    <VariousControls>
-                      <MiscControls></MiscControls>
-                      <Define></Define>
-                      <Undefine></Undefine>
-                      <IncludePath></IncludePath>
-                    </VariousControls>
-                  </C51>
-                </File51>
-              </FileOption>
-            </File>
-            <File>
               <FileName>lcd.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\lcd.h</FilePath>
@@ -465,6 +375,11 @@
               <FileName>uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Test\lcd.c</FilePath>
             </File>
           </Files>
         </Group>

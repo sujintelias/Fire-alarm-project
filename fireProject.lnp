@@ -2,5 +2,5 @@
 "fire n bzr.obj",
 "delay.obj",
 "uart.obj" 
-TO "my lcd" 
+TO "fireProject" 
 RAMSIZE(256) 

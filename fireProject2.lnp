@@ -1,6 +1,6 @@
-".\lcd.obj",
 "fire n bzr.obj",
 "delay.obj",
-"uart.obj" 
-TO "my lcd" 
+"uart.obj",
+"lcd.obj" 
+TO "fireProject2" 
 RAMSIZE(256) 
