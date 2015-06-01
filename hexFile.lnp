@@ -1,5 +1,0 @@
-".\Fire alarm project\delay.obj",
-".\Fire alarm project\fire n bzr.obj",
-".\Fire alarm project\uart2.obj" 
-TO ".\Fire alarm project\hexfile" 
-PRINT(".\hexfile.m51") RAMSIZE(256) 
