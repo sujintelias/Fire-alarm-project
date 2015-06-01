@@ -5,5 +5,6 @@ obj=serial.Serial('COM13',9600,serial.EIGHTBITS,serial.PARITY_NONE,serial.STOPBI
 s=socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
 while True:
     sen=obj.read(100)
-    print sen
-    s.sendto(sen,server)
+    if len(sen)>1:
+        print sen
+        s.sendto(sen,server)
