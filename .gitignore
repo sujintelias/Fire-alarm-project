@@ -43,3 +43,6 @@ Temporary Items
 .apdisk
 *.plg
 *.plg
+*.obj
+*.LST
+*.lst
