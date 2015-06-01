@@ -1,4 +1,4 @@
-C51 COMPILER V9.00   LCD                                                                   05/29/2015 18:46:18 PAGE 1   
+C51 COMPILER V9.00   LCD                                                                   06/01/2015 11:57:27 PAGE 1   
 
 
 C51 COMPILER V9.00, COMPILATION OF MODULE LCD
@@ -62,7 +62,7 @@ MODULE INFORMATION:   STATIC OVERLAYABLE
    CODE SIZE        =    121    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
-C51 COMPILER V9.00   LCD                                                                   05/29/2015 18:46:18 PAGE 2   
+C51 COMPILER V9.00   LCD                                                                   06/01/2015 11:57:27 PAGE 2   
 
    PDATA SIZE       =   ----    ----
    DATA SIZE        =   ----       5

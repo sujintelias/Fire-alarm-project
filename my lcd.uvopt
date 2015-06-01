@@ -186,9 +186,9 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>14</ColumnNumber>
+      <ColumnNumber>2</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>43</TopLine>
+      <TopLine>46</TopLine>
       <CurrentLine>55</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\fire n bzr.c</PathWithFileName>
@@ -242,10 +242,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>1</ColumnNumber>
+      <ColumnNumber>13</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>8</CurrentLine>
+      <TopLine>15</TopLine>
+      <CurrentLine>30</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\uart.c</PathWithFileName>
       <FilenameWithoutPath>uart.c</FilenameWithoutPath>
@@ -1611,15 +1611,15 @@
       <Documents>
         <Doc>
           <Name>.\fire n bzr.c</Name>
-          <ColumnNumber>14</ColumnNumber>
-          <TopLine>43</TopLine>
+          <ColumnNumber>2</ColumnNumber>
+          <TopLine>46</TopLine>
           <CurrentLine>55</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\uart.c</Name>
-          <ColumnNumber>1</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>8</CurrentLine>
+          <ColumnNumber>13</ColumnNumber>
+          <TopLine>15</TopLine>
+          <CurrentLine>30</CurrentLine>
         </Doc>
         <Doc>
           <Name>.\Test\lcd.c</Name>
@@ -1632,6 +1632,12 @@
           <ColumnNumber>17</ColumnNumber>
           <TopLine>1</TopLine>
           <CurrentLine>5</CurrentLine>
+        </Doc>
+        <Doc>
+          <Name>UART.H</Name>
+          <ColumnNumber>24</ColumnNumber>
+          <TopLine>1</TopLine>
+          <CurrentLine>4</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

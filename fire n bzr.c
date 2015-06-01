@@ -4,8 +4,8 @@
 #include "lcd.h"
 #define segs P1
 #define datas P0
-sbit bzr=P3^0;
-sbit ack=P3^1;
+sbit bzr=P3^2;
+sbit ack=P3^3;
 void fire(unsigned char str[4])
 {
 	
@@ -35,7 +35,7 @@ void fire(unsigned char str[4])
 void main()
 {	
 	   int i;
-	   char cntr='a';
+	   
 	   unsigned char fireCode[]={0x8e,0x0c,0xee,0x9e};
 	   unsigned char initCode[]={0x01,0x01,0x01,0x01};
 
@@ -45,25 +45,25 @@ void main()
 	   lcd_init();
 	   lcd_clear();
 	   lcd_strwrite("Init");
+	   
 	   uart_init();
 	   //msg=uart_rxchar(); //Extra ???
 		while(1)
 		{	
-			cntr=cntr+1;
-		   	msg=uart_rxchar();
-			lcd_clear();
-	   		lcd_datawrite(cntr);
+			
+		   	msg=uart_rxchar(prevMsg);
+			
 			
 			if (msg!=prevMsg)
 			{   prevMsg = msg;
 				//uart_txchar(msg);   //Acknowledgement
 
-				uart_txchar('a'); //Debug code
+				uart_txchar(msg); //Debug code
 			}
 			else
 			{
 			 	//uart_txchar(msg+1);   //Bug Acknowledgement
-				uart_txchar('b');		//Debug Code
+				uart_txchar(msg+1);		//Debug Code
 			}
 
 		    //uart_txchar(msg);   //Acknowledgement
@@ -90,7 +90,8 @@ void main()
 			else 
 			 {
 				   bzr=0;
-				   fire(initCode);
+				   for(i=0;i<200;i++)
+				   	fire(initCode);
 				   lcd_clear();
 	   				lcd_strwrite("Init");
 			 } 	 

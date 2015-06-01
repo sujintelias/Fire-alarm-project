@@ -14,11 +14,21 @@ void uart_txchar(char ch)
   	while(TI==0);    // Wait till the data is trasmitted
     TI=0;
 }
-char uart_rxchar()
+char uart_rxchar(char ch)
 {
-	while(RI==0);	  // Wait till the data is received
-    RI=0;        // Clear Receive Interrupt Flag for next cycle
-  	return(SBUF);	  // return the received char
+	//while(RI==0);	  // Wait till the data is received
+    //RI=0;        // Clear Receive Interrupt Flag for next cycle
+  	//return(SBUF);	  // return the received char
+	if(RI==1)
+	{
+		RI=0;
+		return SBUF;
+	}
+	else
+	{
+		SBUF=ch;
+		return SBUF;
+	}
 }
 void uart_txstring(unsigned char ch[100])
  {
