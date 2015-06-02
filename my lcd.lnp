@@ -1,6 +1,0 @@
-".\lcd.obj",
-"fire n bzr.obj",
-"delay.obj",
-"uart.obj" 
-TO "my lcd" 
-RAMSIZE(256) 
